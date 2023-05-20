@@ -1,5 +1,7 @@
 # Attendance Tracker
 
+**Under development**
+
 The Attendance Tracker is a simple tool designed to help users maintain their attendance records and ensure they achieve a minimum attendance percentage of 75%. This project provides a web-based interface where users can easily log their attendance and track their progress.
 
 ## Features
