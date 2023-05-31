@@ -33,7 +33,7 @@ body{
     background: linear-gradient(0deg,transparent,transparent,#45f3ff,#45f3ff,#45f3ff);
     z-index: 1;
     transform-origin: bottom right;
-    animation: animate 6s linear infinite;
+    animation: animate_login 6s linear infinite;
 }
 
 .box::after
@@ -47,7 +47,7 @@ body{
         background: linear-gradient(0deg,transparent,transparent,#45f3ff,#45f3ff,#45f3ff);
         z-index: 1;
         transform-origin: bottom right;
-        animation: animate 6s linear infinite;
+        animation: animate_login 6s linear infinite;
         animation-delay: -3s;
     }
 
@@ -68,7 +68,7 @@ body{
     background: linear-gradient(0deg,transparent,transparent,#ff2770,#ff2770,#ff2770);
     z-index: 1;
     transform-origin: bottom right;
-    animation: animate 6s linear infinite;
+    animation: animate_login 6s linear infinite;
     animation-delay: -1.5s;
 }
 
@@ -82,11 +82,11 @@ body{
     background: linear-gradient(0deg,transparent,transparent,#ff2770,#ff2770,#ff2770);
     z-index: 1;
     transform-origin: bottom right;
-    animation: animate 6s linear infinite;
+    animation: animate_login 6s linear infinite;
     animation-delay: -4.5s;
 }
 
-@keyframes animate{
+@keyframes animate_login{
     0%
     {
         transform: rotate(0deg);

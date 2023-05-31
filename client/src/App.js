@@ -6,9 +6,9 @@ import HomePage from "./Components/homePage/Homepage"
 const App =()=>{
     return(
         <div>
-            {/* <Login/> */}
+            <Login/>
             {/* <Signup/> */}
-            <HomePage/>
+            {/* <HomePage/> */}
         </div>
     )
 }

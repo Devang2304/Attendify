@@ -12,7 +12,7 @@ body{
     background: #07252d;
 }
 
-h2{
+.homePage h2{
     position: relative;
     font-size: 3em;
     letter-spacing: 5px;
