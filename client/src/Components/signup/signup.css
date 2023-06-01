@@ -182,6 +182,12 @@ body{
     color: #8f8f8f;
     text-decoration: none;
 }
+.box form .links .btsign{
+    margin: 10px 0;
+    font-size: 0.75em;
+    color: #8f8f8f;
+    text-decoration: none;
+}
 .box form .links a:hover,
 .box form .links a:nth-child(2)
 {
