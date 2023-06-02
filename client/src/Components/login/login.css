@@ -187,6 +187,10 @@ body{
 {
     color: #fff;
 }
+.box form  .button:hover
+{
+    color: #fff;
+}
 
 .box form input[type="submit"]
 {
