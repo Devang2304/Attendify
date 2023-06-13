@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import Routes from './routes/routes.js';
+import Routes from './routes/userRoutes.js';
 const app = express();
 const PORT = process.env.PORT || 5000;
 
