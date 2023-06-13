@@ -7,16 +7,15 @@ export const registerUser = async (req, res) =>{
     const {userName,password} = req.body;
     if(!userName || !password){
         res.status(400).send('Please enter all fields');
-        // throw new Error('Please enter all fields');
     }
 
     const userExists =await User.findOne({userName});
 
     if(userExists){
         res.status(400).send('User already exists');
-    }
+    }else{
 
-    // hashing the password
+        // hashing the password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password,salt);
 
@@ -31,9 +30,12 @@ export const registerUser = async (req, res) =>{
         res.status(201).json({
             _id:user.id,
             userName: user.userName,
+            token: generateToken(user._id)
         })
     }else{
-        res.status(400).send('Invalid user data');
+        res.status(400).json('Invalid user data');
+        }
+
     }
 }
 
@@ -47,9 +49,16 @@ export const loginUser = async (req, res) =>{
        res.json({
         _id:user.id,
         userName: user.userName,
+        token: generateToken(user._id),
        })
     }else{
         res.status(400).send('Invalid Credenttials');
     }
 }
 
+// generate JWT
+const generateToken = (id) => {
+    return jwt.sign({id}, process.env.JWT_SECRET, {
+        expiresIn: '30d',
+    })
+}
