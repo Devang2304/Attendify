@@ -1,8 +1,9 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import Routes from './routes/routes.js';
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -24,6 +25,9 @@ mongoose.connect(CONNECTION_URL,{useNewUrlParser:true,useUnifiedTopology:true})
 app.listen(PORT,()=>{
     console.log(`Server listening on port http://localhost:${PORT}`);
 });
+
+
+app.use('/',Routes);
 
 app.get('/',(req,res)=>{
     res.send("<h2>YOU ARE ON MAIN SERVER<h2>");
