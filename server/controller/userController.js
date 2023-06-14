@@ -62,3 +62,13 @@ const generateToken = (id) => {
         expiresIn: '30d',
     })
 }
+
+export const getMe = async (req, res) =>{
+    res.status(200).json('this is dashboard');
+    // const {_id, userName} =await User.findById(req.user.id);
+
+    // res.status(200).json({
+    //     id:_id,
+    //     userName
+    // })
+}
