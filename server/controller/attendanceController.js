@@ -1,7 +1,7 @@
 import attendanceData from '../model/userAttendance.js';
 import User from '../model/user.js';
 
-const getUserAttendance = async (req,res) =>{
+const getUserAllAttendance = async (req,res) =>{
     try {
         allAttendance = await attendanceData.find({user: req.user.id});
         res.status(200).json(allAttendance);
