@@ -3,7 +3,8 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import Routes from './routes/userRoutes.js';
+import userRoutes from './routes/userRoutes.js';
+import attendanceRoutes from './routes/attendanceRoutes.js';
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -27,7 +28,8 @@ app.listen(PORT,()=>{
 });
 
 
-app.use('/',Routes);
+app.use('/',userRoutes);
+app.use('/',attendanceRoutes);
 
 app.get('/',(req,res)=>{
     res.send("<h2>YOU ARE ON MAIN SERVER<h2>");
