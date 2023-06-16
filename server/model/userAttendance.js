@@ -7,7 +7,7 @@ const userSchema = mongoose.Schema({
         ref: 'User'
     },
     subjectName : {
-        type: Number,
+        type: String,
         required: [true, 'Please enter a subject']
 
     },
