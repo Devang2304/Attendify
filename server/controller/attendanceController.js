@@ -1,16 +1,16 @@
 import attendanceData from '../model/userAttendance.js';
 import User from '../model/user.js';
 
-const getUserAllAttendance = async (req,res) =>{
+export const getUserAllAttendance = async (req,res) =>{
     try {
-        allAttendance = await attendanceData.find({user: req.user.id});
+        const allAttendance = await attendanceData.find({user: req.user.id});
         res.status(200).json(allAttendance);
     } catch (error) {
         res.status(404).json({message: error.message});
     }
 }
 
-const addUserAttendance = async (req,res) =>{
+export const addUserAttendance = async (req,res) =>{
     const userAttendance = req.body;
 
     try {
@@ -28,7 +28,7 @@ const addUserAttendance = async (req,res) =>{
     }
 }
 
-const updateAttendance = async (req,res) =>{
+export const updateAttendance = async (req,res) =>{
     try {
         const attendance = await attendanceData.findById(req.params.id);
 
@@ -38,13 +38,40 @@ const updateAttendance = async (req,res) =>{
         else if(attendance.user.toString() !== req.user.id){
             res.status(404).json('User not authorized');
         }else{
+            req.body.attendance= ((req.body.lectureAttended/req.body.totalLectures)*100).toFixed(2);
             const updatedAttendance = await attendanceData.findByIdAndUpdate(req.params.id,req.body, {
                 new : true,
             })
             updatedAttendance.save();
+            res.status(200).json(updatedAttendance);
         }
 
 
+    } catch (error) {
+        res.status(404).json({message:error.message});
+    }
+}
+
+export const getOneAttendance = async (req,res) =>{
+    try {
+        const getAttendance = await attendanceData.findById(req.params.id);
+        if(!req.user){
+            res.status(404).json('Task not found');
+        }else if(getAttendance.user.toString() !== req.user.user){
+            res.status(404).json('User not authorized');
+        }else{
+            const getAttendance = await attendanceData.findById(req.params.id);
+            res.status(200).json(getAttendance);
+        }
+    } catch (error) {
+        res.status(404).json({message:error.message});
+    }
+}
+
+export const deleteAttendance = async (req,res) =>{
+    try {
+        const deleteAttendance = await attendanceData.deleteOne({_id: req.params.id});
+        res.status(200).json(deleteAttendance);
     } catch (error) {
         res.status(404).json({message:error.message});
     }
