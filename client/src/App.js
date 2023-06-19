@@ -1,20 +1,25 @@
 import React from "react";
-import Login from "./Components/login/Login";
-import Signup from "./Components/signup/Signup";
-import HomePage from "./Components/homePage/Homepage"
-import AttendanceForm from "./Components/attendanceForm/AttendanceForm";
-import {BrowserRouter , Route, Routes} from 'react-router-dom';
-const App =()=>{
-    return(
-       <BrowserRouter>
-       <Routes>
-       <Route path="/" element={<HomePage/>}/>
-       <Route path="/login" element={<Login/>}/>
-       <Route path="signup" element={<Signup/>}/>
-       <Route path="/edit/:id" element={<AttendanceForm/>}/>
-       </Routes>
-       </BrowserRouter>
-    );
+import {BrowserRouter as Router,Routes, Route} from 'react-router-dom';
+import Header from './Components/Header';
+import Dashboard from './pages/Dashboard';
+import Login from './pages/Login';
+import Register from './pages/Register';
+
+const App = () =>{
+    return (
+        <>
+        <Router>
+            <div className="container">
+                <Header/>
+                <Routes>
+                <Route path='/' element={<Dashboard/>}/>
+                <Route path='/login' element={<Login/>}/>
+                <Route path='/register' element={<Register/>}/>
+                </Routes>
+            </div>
+        </Router>
+        </>
+    )
 }
 
 export default App;
