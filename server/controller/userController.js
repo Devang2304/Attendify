@@ -64,7 +64,7 @@ const generateToken = (id) => {
 }
 
 export const getMe = async (req, res) =>{
-    res.status(200).json('this is dashboard');
+    res.status(200).json(req.user);
     // const {_id, userName} =await User.findById(req.user.id);
 
     // res.status(200).json({
