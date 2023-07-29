@@ -51,6 +51,7 @@ The Attendance Tracker is a simple tool designed to help users maintain their at
 3. On the dashboard, you can see your attendance statistics, including the current percentage and progress towards the target.
 4. To log attendance, click on the "Log Attendance" button and provide the date and attendance status (present or absent).
 5. You will receive reminder notifications if your attendance drops below 80% in any subject.
+6. Created with React-redux
 
 ## Contributing
 
