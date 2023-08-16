@@ -17,6 +17,7 @@ const Dashboard = () => {
     <section className="heading">
       <h1>Welcome {user && user.userName}</h1>
       <p>Attendance Dashboard</p>
+      <button className="btn btn-block" onClick={()=>{navigate('/add')}}>Add Attendance</button>
     </section>
     </>
   )
