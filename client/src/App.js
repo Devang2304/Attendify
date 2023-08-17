@@ -6,7 +6,7 @@ import Header from './Components/Header';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import AttendanceForm from "./Components/AttendanceForm";
+import AttendanceForm from "./pages/AttendanceForm";
 
 const App = () =>{
     return (

@@ -4,46 +4,64 @@ import { createAttendance } from "../features/attendance/attendanceSlice"
 
 
 const AttendanceForm = () => {
-    const [formValue,setFormValue] = useState('');
+
+    const defaultValue = {
+        subjectName: 'subject',
+        lectureAttended:0,
+        totalLectures:0,
+    }
+
+    const [formValue,setFormValue] = useState(defaultValue);
+    const {subjectName,lectureAttended,totalLectures} = formValue;
     const dispatch=useDispatch();
+
+    const onValueChange=(e)=>{
+        setFormValue({...formValue, [e.target.name]:e.target.value});
+        console.log(formValue);
+    }
 
     const onSubmit = (e) => {
         e.preventDefault();
-
-        dispatch(createAttendance({formValue}))
+        const attendData = {
+        subjectName,
+        lectureAttended,
+        totalLectures,
+        }
+        dispatch(createAttendance(attendData))
+        console.log(formValue);
         setFormValue('')
     }
   return (
     <section className="form">
-        <form onSubmit={onsubmit}>
+        <form onSubmit={onSubmit}>
             <div className="form-group">
                 <label htmlFor="text">Subject Name</label>
                 <input 
                 type="text"
                 name="subjectName"
                 id="subjectName"
-                value={formValue}
-                onChange={(e)=>{setFormValue(e.target.value)}}
+                value={subjectName}
+                onChange={(e)=>{onValueChange(e)}}
                 />
             </div>
             <div className="form-group">
-                <label htmlFor="number">lecture Attended</label>
+                <label>lecture Attended</label>
                 <input 
                 type="number"
                 name="lectureAttended"
                 id="lectureAttended"
-                value={formValue}
-                onChange={(e)=>{setFormValue(e.target.value)}}
+                value={lectureAttended}
+                onChange={(e)=>{onValueChange(e)}}
                 />
             </div>
             <div className="form-group">
-                <label htmlFor="number">total Lectures</label>
+                <label>total Lectures</label>
                 <input 
                 type="number"
                 name="totalLectures"
                 id="totalLectures"
-                value={formValue}
-                onChange={(e)=>{setFormValue(e.target.value)}}
+                value={totalLectures}
+                onChange={(e)=>{onValueChange(e)}}
                 />
             </div>
             <div className="form-group">
