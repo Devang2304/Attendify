@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import AttendanceForm from "./pages/AttendanceForm";
+import EditAttendanceForm from "./pages/editAttendanceForm";
 
 const App = () =>{
     return (
@@ -19,6 +20,7 @@ const App = () =>{
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/register' element={<Register/>}/>
                 <Route path='/add' element={<AttendanceForm/>}/>
+                <Route path='/edit/:id' element={<EditAttendanceForm/>}/>
                 </Routes>
             </div>
         </Router>
