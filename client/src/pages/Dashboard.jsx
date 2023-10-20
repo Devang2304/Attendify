@@ -20,7 +20,9 @@ const Dashboard = () => {
     if(!user){
       navigate('/login');
     }
-    dispatch(getAttendances());
+    else{
+      dispatch(getAttendances()); 
+    }
 
     return () =>{
       dispatch(reset());
