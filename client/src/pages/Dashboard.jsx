@@ -40,7 +40,7 @@ const Dashboard = () => {
       <button className="btn btn-block" onClick={()=>{navigate('/add')}}>Add Attendance</button>
 
       <section className="content">
-        {attendance.length>0?(
+        {Array.isArray(attendance) && attendance.length>0?(
           <div className="attendances">
             {attendance.map((attendance)=>(
               <AttendanceItem key={attendance._id} attendance={attendance}/>

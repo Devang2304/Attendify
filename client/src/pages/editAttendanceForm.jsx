@@ -33,25 +33,27 @@ const EditAttendanceForm = () => {
         lectureAttended:response.payload.lectureAttended,  
         totalLectures:response.payload.totalLectures
       });
-      console.log("value got from dispatch",response);
-      console.log(response.payload.subjectName);
+      // console.log("value got from dispatch",response);
+      // console.log(response.payload.subjectName);
         // dispatch(reset());
     }
 
     const onValueChange=(e)=>{
         setFormValue({...formValue, [e.target.name]:e.target.value});
-        console.log(formValue);
+        // console.log(formValue);
     }
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
-        const EditedattendData = {
-        subjectName,
-        lectureAttended,
-        totalLectures,
-        }
-        dispatch(editAttendance(id,EditedattendData))
-        console.log(formValue);
+        const EditedattendData = formValue;
+        // const EditedattendData = {
+        // subjectName,
+        // lectureAttended,
+        // totalLectures,
+        // }
+        await dispatch(editAttendance({id,EditedattendData}));
+        // console.log(dispatch(editAttendance({id,EditedattendData})));
+        // console.log(formValue);
         // setFormValue('')
         navigate('/');
     }

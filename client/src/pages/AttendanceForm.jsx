@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { createAttendance } from "../features/attendance/attendanceSlice"
+import { useNavigate } from "react-router-dom"
 
 
 const AttendanceForm = () => {
@@ -14,10 +15,11 @@ const AttendanceForm = () => {
     const [formValue,setFormValue] = useState(defaultValue);
     const {subjectName,lectureAttended,totalLectures} = formValue;
     const dispatch=useDispatch();
+    const navigate = useNavigate();
 
     const onValueChange=(e)=>{
         setFormValue({...formValue, [e.target.name]:e.target.value});
-        console.log(formValue);
+        // console.log(formValue);
     }
 
     const onSubmit = (e) => {
@@ -28,8 +30,9 @@ const AttendanceForm = () => {
         totalLectures,
         }
         dispatch(createAttendance(attendData))
-        console.log(formValue);
+        // console.log(formValue);
         setFormValue('')
+        navigate('/');
     }
   return (
     <section className="form">

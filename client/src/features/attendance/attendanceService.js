@@ -39,7 +39,7 @@ const editAttendance = async (id,EditedattendData,token) => {
             Authorization : `Bearer ${token}`
         }
     }
-    const response = await axios.post(`${API_URL}/${id}`,config,EditedattendData);
+    const response = await axios.post(`${API_URL}/${id}`,EditedattendData,config);
     return response.data;
 }
 

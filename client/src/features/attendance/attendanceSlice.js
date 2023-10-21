@@ -49,14 +49,17 @@ export const getSingleAttendance = createAsyncThunk('/getSingleAttendance', asyn
     }
 })
 // edit single subject attendance
-export const editAttendance = createAsyncThunk('/editAttendance', async (id,EditedattendData,thunkAPI) =>{
+export const editAttendance = createAsyncThunk('/editAttendance', async (data,thunkAPI) =>{
     try {
+        const { id, EditedattendData } = data;
         const token = thunkAPI.getState().auth.user.token;
+        // console.log("this is running");
+        // console.log(token);
         return await attendanceService.editAttendance(id,EditedattendData,token);
     } catch (error) {
         const message = 
         (error.response && error.response.data && error.response.data.message) ||
-        error.message || error.toString()
+        error.message || error.toString();
         return thunkAPI.rejectWithValue(message);
     }
 })
