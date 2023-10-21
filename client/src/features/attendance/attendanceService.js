@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = 'http://localhost:5000';
+const API_URL = 'https://attendify-backend.onrender.com';
 
 
 const createAttendance = async (UserAttendanceData, token) => {
